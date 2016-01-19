@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Employees Leaves</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Pay Month</th>
+                <%@leave_heads.each do |leave_head|%>
+                <th><%=leave_head.name%></th>
+                <%end%>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @leave_employees.each do |leave_employee| %>
+                <tr>
+                  <td><%= leave_employee.pay_date.strftime("%b %y")%></td>
+                  <% leave_employee.head_values.delete("^0-9,").split(",").each do |head|%>
+                    <td><%=head%></td>
+                  <%end%>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+            <%= link_to "Add Leaves", new_leave_allot_leave_employee_path(@leave_allot), class:"btn btn-primary"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Add Leave Structure</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3"></div>
+              <div class="col-md-5">
+                <%=render 'form'%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Leave Structures</div>
+        <div class="panel-body">
+          <div class="table-responsive" style=" width: 100%; margin: 0; overflow-y: auto;">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Serial</th>
+                  <th>Name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% @leave_structures.each_with_index do |leave_structure,index| %>
+                    <td><%= index+1 %></td>
+                    <td><%= leave_structure.name%></td>
+                    <td>
+                        <%= link_to "Settings" , leave_structure_leave_assigns_path(leave_structure) %>
+                        <%= link_to "Delete", leave_structure_path(leave_structure), method: :delete, data: {confirm: "Are you sure?"} %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>    

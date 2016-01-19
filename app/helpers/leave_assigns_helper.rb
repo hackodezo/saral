@@ -1,0 +1,2 @@
+module LeaveAssignsHelper
+end

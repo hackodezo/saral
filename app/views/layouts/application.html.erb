@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payroll</title>
+  <%= stylesheet_link_tag    'application'%>
+  <%= javascript_include_tag 'application'%>
+  <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!-- Latest compiled and minified Data Tables -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+
+<!-- Latest compiled and minified JavaScript Data Tables -->
+	<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+<h2 class="header">Relyon Softtech Ltd</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Payroll</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pay Months <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Pay Months", paymonths_path%></li>
+            <li><%= link_to "Add Pay Month", new_paymonth_path%></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Employee Details", employees_path%></li>
+            <li><%= link_to "Add Employee", new_employee_path%></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salery <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Show Salary Structures", salary_structures_path%></li>
+            <li><%= link_to "Add Salary Structures", new_salary_structure_path%></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Classifications <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Departments", departments_path%></li>
+            <li><%= link_to "Designations", designations_path%></li>
+          </ul>
+        </li>
+      
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Salary Slip <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Salary Listing", employee_salaries_path%></li>
+            <li><%= link_to "Generate Salary Slip", new_employee_salary_path%></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leave Details <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Leaves Policy" , leave_structures_path%></li>
+            <li><%= link_to "Leaves Head" , leave_heads_path%></li>
+          </ul>
+        </li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Allot/Avail Leave <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Allot Leaves", leave_allots_path%></li>
+          </ul>
+        </li>
+        <li><%= link_to "Apply Leave",  leave_details_index_path%></li>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>  
+<%= yield %>
+
+</body>
+</html>

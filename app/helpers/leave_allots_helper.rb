@@ -1,0 +1,2 @@
+module LeaveAllotsHelper
+end

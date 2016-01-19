@@ -1,0 +1,34 @@
+<%= form_for([@leave_allot, @leave_employee]) do |f| %>
+  <% if @leave_employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_employee.errors.count, "error") %> prohibited this Employee leave from being saved:</h2>
+
+      <ul>
+      <% @leave_employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class= "field">
+     <%= f.label :Pay_Month %>
+      <%= f.select :pay_date, Paymonth.all.map { |u| [u.pay_month.strftime("%b %y"), u.pay_month] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+    </div>
+
+  <%@leave_heads.each do |leave_head|%>
+  <div class="field">
+    <label><%=leave_head.name%></label>
+    <%= f.number_field :head_values, class: "form-control", placeholder: leave_head.name , multiple: true %> 
+  </div>
+
+  <%= f.hidden_field :leave_allot_id, value: @leave_allot.id%>
+  <%= f.hidden_field :employee_id, value: @leave_allot.employee_id%>
+  <%end%>
+
+  
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

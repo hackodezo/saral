@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Month year:</strong>
+  <%= @paymonth.month_year %>
+</p>
+
+<p>
+  <strong>Day count:</strong>
+  <%= @paymonth.day_count %>
+</p>
+
+<p>
+  <strong>Month name:</strong>
+  <%= @paymonth.month_name %>
+</p>
+
+<p>
+  <strong>Pay month:</strong>
+  <%= @paymonth.pay_month %>
+</p>
+
+<%= link_to 'Edit', edit_paymonth_path(@paymonth) %> |
+<%= link_to 'Back', paymonths_path %>

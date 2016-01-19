@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Leave structure:</strong>
+  <%= @leave_allot.leave_structure_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @leave_allot.employee_id %>
+</p>
+
+<%= link_to 'Edit', edit_leave_allot_path(@leave_allot) %> |
+<%= link_to 'Back', leave_allots_path %>

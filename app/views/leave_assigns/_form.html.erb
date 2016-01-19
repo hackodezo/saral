@@ -1,0 +1,27 @@
+<%= form_for([@leave_structure, @leave_assign]) do |f| %>
+  <% if @leave_assign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_assign.errors.count, "error") %> prohibited this paymonth_leafe from being saved:</h2>
+
+      <ul>
+      <% @leave_assign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :leave_id %><br>
+    <%= f.select :leave_head_id, LeaveHead.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :leave_structure_id, value: @leave_structure.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

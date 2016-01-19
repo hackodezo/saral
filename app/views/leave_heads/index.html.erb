@@ -1,0 +1,44 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Add Salary Heads</div>
+        <div class="panel-body">
+          <%=render 'form'%>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Leave Heads</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @leave_heads.each do |leave_head| %>
+                <tr>
+                  <td><%= leave_head.name %></td>
+                  <td><%= link_to 'Edit', edit_leave_head_path(leave_head) %>|
+                      <%= link_to 'Destroy', leave_head, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

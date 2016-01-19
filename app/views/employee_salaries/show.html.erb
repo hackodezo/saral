@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Salary date:</strong>
+  <%= @employee_salary.salary_date %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @employee_salary.employee_id %>
+</p>
+
+<p>
+  <strong>Salary structure:</strong>
+  <%= @employee_salary.salary_structure_id %>
+</p>
+
+<%= link_to 'Edit', edit_employee_salary_path(@employee_salary) %> |
+<%= link_to 'Back', employee_salaries_path %>

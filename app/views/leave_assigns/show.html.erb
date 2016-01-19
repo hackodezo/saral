@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Leave head:</strong>
+  <%= @leave_assign.leave_head_id %>
+</p>
+
+<p>
+  <strong>Leave structure:</strong>
+  <%= @leave_assign.leave_structure_id %>
+</p>
+
+<%= link_to 'Edit', edit_leave_assign_path(@leave_assign) %> |
+<%= link_to 'Back', leave_assigns_path %>

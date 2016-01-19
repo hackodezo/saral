@@ -1,0 +1,21 @@
+<%= form_for(@paymonth) do |f| %>
+  <% if @paymonth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paymonth.errors.count, "error") %> prohibited this paymonth from being saved:</h2>
+
+      <ul>
+      <% @paymonth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pay_month %><br>
+    <%= f.text_field :pay_month, class: "form-control",placeholder: "Enter Date Of Birth", id:"datepicker1"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

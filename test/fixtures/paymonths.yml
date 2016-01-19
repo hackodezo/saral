@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month_year: 1
+  day_count: 1
+  month_name: MyString
+  pay_month: 2016-01-18
+
+two:
+  month_year: 1
+  day_count: 1
+  month_name: MyString
+  pay_month: 2016-01-18

@@ -1,0 +1,69 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Add Pay Month</div>
+        <div class="panel-body">
+          <%= form_for(@paymonth) do |f| %>
+  <% if @paymonth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paymonth.errors.count, "error") %> prohibited this paymonth from being saved:</h2>
+
+      <ul>
+      <% @paymonth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pay_month %><br>
+    <%= f.text_field :pay_month, class: "form-control",placeholder: "Enter Pay Month", id:"datepicker1"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Employees</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Month year</th>
+                <th>Day count</th>
+                <th>Month name</th>
+                <th>Pay month</th>
+                <th >Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @paymonths.each do |paymonth| %>
+                <tr>
+                  <td><%= paymonth.month_year %></td>
+                  <td><%= paymonth.day_count %></td>
+                  <td><%= paymonth.month_name %></td>
+                  <td><%= paymonth.pay_month %></td>
+                  <td><%= link_to 'Destroy', paymonth, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

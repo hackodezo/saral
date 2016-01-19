@@ -1,0 +1,63 @@
+<%= form_for(@salary_structure) do |f| %>
+  <% if @salary_structure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@salary_structure.errors.count, "error") %> prohibited this salary_structure from being saved:</h2>
+
+      <ul>
+      <% @salary_structure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>`
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Stucture_Name %><br>
+      <%= f.text_field :name, class: "form-control", placeholder: "Enter Salary Structure Name", autofocus: true %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Basic %><br>
+      <%= f.number_field :basic, class: "form-control", placeholder: "Enter Basic Salary", id:"basic"%>
+    </div>
+
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :House_Rent_Allowances %><br>
+      <%= f.number_field :hra, class: "form-control", placeholder: "Enter House Rent Allowance", id:"hra"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Dearness_Allowances %><br>
+      <%= f.number_field :da, class: "form-control", placeholder: "Enter Dearness Allowances", id:"da"%>
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Special_Allowance %><br>
+      <%= f.number_field :special_allowance, class: "form-control", placeholder: "Enter Special Allowances", id:"sa"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Others %><br>
+      <%= f.number_field :others, class: "form-control", placeholder: "Enter Other Allowances", id:"others"%>
+    </div>
+  </div>
+   <div class="row">  
+    <div class="col-md-6">
+      <%= f.label :Conveyance %><br>
+      <%= f.number_field :conveyance, class: "form-control", placeholder: "Conveyance", id:"conveyance"%>
+    </div>
+  </div>
+  <br/>
+
+
+
+  <br/>
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary btn-fixi"%>
+  </div>
+<% end %>

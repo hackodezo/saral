@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">Current Month Availability</div>
+        <div class="panel-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <%@leave_heads.each do |leave_head|%>
+                <th><%=leave_head.name%></th>
+                <%end%>
+              </tr>
+            </thead>
+            <tbody>
+              <%if !(@leave_appl.nil?)%>
+                <% @leave_appl.leave_available.split(",").each do |head|%>
+                  <td><%=head%></td>
+                <%end%>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">Apply Leave</div>
+        <div class="panel-body">
+          <%=render 'form'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Avaliable Leaves</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Pay Month</th>
+                <%@leave_heads.each do |leave_head|%>
+                <th><%=leave_head.name%></th>
+                <%end%>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @leave_employees.each do |leave_employee| %>
+                <tr>
+                  <td><%= leave_employee.pay_date.strftime("%b %y")%></td>
+                  <% leave_employee.head_values.delete("^0-9,").split(",").each do |head|%>
+                    <td><%=head%></td>
+                  <%end%>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Applied Leaves</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Leave Type</th>
+                <th>No Of Days</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @leave_applies.each do |leave_apply| %>
+                <tr>
+                  <td><%=leave_apply.from_date.strftime("%d %b %y")%></td>
+                  <td><%=leave_apply.to_date.strftime("%d %b %y")%></td>
+                  <td><%= leave_apply.leave_head.name%></td>
+                  <td><%=leave_apply.value%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

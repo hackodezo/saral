@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Employees</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <th>Actions</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @employees.each do |employee| %>
+                <tr>
+                  <td><%=link_to employee.name, employee_path(employee) %></td>
+                  <td><%= employee.designation.name%></td>
+                  <td><%= employee.department.name%></td>
+                  <td><%= link_to "Apply Leave", employee_leave_applies_path(employee) %>
+
+                 </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

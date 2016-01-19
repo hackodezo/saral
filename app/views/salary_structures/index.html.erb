@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Lisiting Salary Structures</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Basic</th>
+                <th>Da</th>
+                <th>Hra</th>
+                <th>Pf</th>
+                <th>Pt</th>
+                <th>Gross</th>
+                <th>Monthly ctc</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @salary_structures.each do |salary_structure| %>
+                <tr>
+                  <td><%= salary_structure.name %></td>
+                  <td><%= salary_structure.basic %></td>
+                  <td><%= salary_structure.da %></td>
+                  <td><%= salary_structure.hra %></td>
+                  <td><%= salary_structure.pf %></td>
+                  <td><%= salary_structure.pt %></td>
+                  <td><%= salary_structure.gross %></td>
+                  <td><%= salary_structure.monthly_ctc %></td>
+                  <td><%= link_to 'Show', salary_structure %>
+                      <%= link_to 'Edit', edit_salary_structure_path(salary_structure) %>
+                      <%= link_to 'Destroy', salary_structure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

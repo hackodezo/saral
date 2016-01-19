@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  salary_date: 2016-01-18
+  employee_id: 1
+  salary_structure_id: 1
+
+two:
+  salary_date: 2016-01-18
+  employee_id: 1
+  salary_structure_id: 1

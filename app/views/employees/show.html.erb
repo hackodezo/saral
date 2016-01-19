@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Saalary Slips</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Salary Date</th>
+                <th>Basic </th>
+                <th>Dearness Allowances</th>
+                <th>House Rent Allowances</th>
+                <th>Gross</th>
+                <th>Momthly Ctc</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @employee_salaries.each do |employee| %>
+                <tr>
+                  <td><%=link_to employee.employee.name , employee_salary_path(employee)%></td>
+                  <td><%= employee.salary_date.strftime("%b %y") %></td>
+                  <td><%= employee.salary_structure.basic%></td>
+                  <td><%= employee.salary_structure.da%></td>
+                  <td><%= employee.salary_structure.hra%></td>
+                  <td><%= employee.salary_structure.gross%></td>
+                  <td><%= employee.salary_structure.monthly_ctc%></td>
+                 </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

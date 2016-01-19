@@ -1,0 +1,43 @@
+<%= form_for(@employee_salary) do |f| %>
+  <% if @employee_salary.errors.any? %>
+    <div id="error_exemployeeation">
+      <h2><%= pluralize(@employee_salary.errors.count, "error") %> prohibited this employee Salary from being saved:</h2>
+
+      <ul>
+      <% @employee_salary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Salary_Date %>
+      <%= f.text_field :salary_date, class: "form-control",placeholder: "Enter Date Of joining", id:"datepicker2" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Select_Employee %>
+      <%= f.select :employee_id, Employee.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= f.label :Select_Employee %>
+      <%= f.select :salary_structure_id, SalaryStructure.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+
+    </div>
+  </div>
+  <br/>
+  <%= f.submit class:"btn btn-info btn-fixi" %>
+<%end%>
+
+
+
+  

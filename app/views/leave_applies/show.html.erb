@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From date:</strong>
+  <%= @leave_apply.from_date %>
+</p>
+
+<p>
+  <strong>To date:</strong>
+  <%= @leave_apply.to_date %>
+</p>
+
+<p>
+  <strong>Leave structure:</strong>
+  <%= @leave_apply.leave_structure_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @leave_apply.employee_id %>
+</p>
+
+<%= link_to 'Edit', edit_leave_apply_path(@leave_apply) %> |
+<%= link_to 'Back', leave_applies_path %>

@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Listing Leave Heads</h4>
+            </div>
+            <div class="dol-md-6"><h4 style="text-align:right"><%=link_to "Add Leave Heads" , new_leave_structure_leave_assign_path()%></h4>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Leave Head</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @leave_assigns.each do |leave_assign| %>
+                <tr>
+                  <td><%=leave_assign.leave_head.name %></td>
+                  <td></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+
